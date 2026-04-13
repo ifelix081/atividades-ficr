@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #1e293b, #020617);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.container {
+    perspective: 1000px;
+}
+
+/* Tabela */
+table {
+    width: 650px;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* Cabeçalho */
+thead th {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    padding: 14px;
+}
+
+/* Sub-cabeçalho */
+thead tr:nth-child(2) th {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+/* Células */
+td, th {
+    padding: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #e2e8f0;
+
+    /* 🔥 BLOQUEIA SELEÇÃO */
+    user-select: none;
+    pointer-events: auto;
+}
+
+/* Grupo */
+.grupo td {
+    background: rgba(255,255,255,0.03);
+}
+
+/* Junta Alta/Baixa */
+.grupo + .grupo td {
+    border-top: none;
+}
+
+.titulo {
+    font-weight: bold;
+    color: #f1f5f9;
+}
+
+/* brilho seguindo o mouse */
+table::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--x) var(--y), rgba(255,255,255,0.15), transparent 40%);
+    pointer-events: none;
+}
